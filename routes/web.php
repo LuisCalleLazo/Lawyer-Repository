@@ -19,4 +19,17 @@ Route::get('/', function () {
 });
 
 
+Route::get('/admin', function () {
+    return view('admin.home');
+});
+
+Route::get('/client', function () {
+    return view('client.home');
+});
+
+Route::get('/lawyer', function () {
+    return view('lawyer.home');
+});
+
+
 Route::post('/auth/login', [AuthController::class, "login"])->name('login_send');

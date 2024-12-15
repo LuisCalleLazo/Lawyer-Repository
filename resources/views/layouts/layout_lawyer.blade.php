@@ -13,11 +13,28 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
+    @vite('resources/css/app.css')
+    @vite('resources/js/modal_handle.js')
+    @vite('resources/js/axios_handle.js')
+
+
     <title>Abogados - Abogado</title>
 </head>
 <body>
     <div>
         @yield('layout_lawyer')
     </div>
+
+
+    {{-- LOADING DE OPERACIONES --}}
+    <x-modal width="250px" height="140px" title="" bg="#0000" idModal="loadModal" isClose="true">
+        <x-loader width="250px"/>
+    </x-modal>
+
+
+    {{-- PREVIEW REPORTS --}}
+    <x-modal width="800px" height="500px" title="" bg="#0000" idModal="previewModal" isClose="true">
+        <iframe id="reportPreview" style="width:100%; height:500px;"></iframe>
+    </x-modal>
 </body>
 </html>

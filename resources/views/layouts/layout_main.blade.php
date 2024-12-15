@@ -16,7 +16,7 @@
       style="background-image: url('{{ asset('imgs/background2.jpg') }}')">
       {{-- Cabecera de pagina principal --}}
       <div>
-        <p class="text-3xl font-bold text-black">
+        <p class="text-3xl font-bold text-white">
           CONTRATA UN ABOGADO
         </p>
       </div>

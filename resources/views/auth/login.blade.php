@@ -30,14 +30,18 @@
             </div>
             </div>
             <div>
-
+                @error('error')
+                    <p class="text-red-500 my-2 rounded-lg text-sm p-2 text-center">
+                        {{$message}}
+                    </p>
+                @enderror
             </div>
         </div>
         <br>
         <div class="flex justify-center flex-col pb-5 px-10">
             <div class="p-1">
                 <button class="text-center bg-slate-300 py-2 px-1 w-full rounded-xl border-spacing-0.5 broder-black
-                hover:bg-slate-700 hover:text-white active:bg-slate-900
+                hover:bg-black hover:text-white active:bg-black
                 transition-colors duration-150 ease-in-out" type="submit">
                     Login
                 </button>

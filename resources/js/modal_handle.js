@@ -25,3 +25,23 @@ class ModalPrefab {
         }, { once: true });
     }
 }
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const previewModal = document.getElementById('previewModal');
+
+    if (previewModal) {
+        previewModal.addEventListener('click', function (event) {
+            const modalContent = previewModal.querySelector('.modal-content');
+
+            // Si el click es fuera del contenido del modal, cerramos el modal
+            if (!modalContent.contains(event.target)) {
+                previewModal.classList.remove('open');
+                previewModal.classList.add('close');
+                previewModal.addEventListener('animationend', () => {
+                    previewModal.close();
+                }, { once: true });
+            }
+        });
+    }
+});

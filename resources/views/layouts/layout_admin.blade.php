@@ -21,5 +21,18 @@
     <div>
         @yield('layout_admin')
     </div>
+
+
+
+    {{-- LOADING DE OPERACIONES --}}
+    <x-modal width="250px" height="140px" title="" bg="#0000" idModal="loadModal" isClose="true">
+        <x-loader width="250px"/>
+    </x-modal>
+
+
+    {{-- PREVIEW REPORTS --}}
+    <x-modal width="800px" height="500px" title="" bg="#0000" idModal="previewModal" isClose="true">
+        <iframe id="reportPreview" style="width:100%; height:500px;"></iframe>
+    </x-modal>
 </body>
 </html>

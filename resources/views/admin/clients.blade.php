@@ -28,11 +28,11 @@
                 placeholder="Buscar por nombre" id="filter">
         </div>
 
-        <div class="flex-1 px-8 flex justify-end">
+        {{-- <div class="flex-1 px-8 flex justify-end">
             <button class="bg-[#456] py-3 px-6 rounded-2xl">
                 Agregar
             </button>
-        </div>
+        </div> --}}
     </div>
     <div class="h-[80vh] relative overflow-auto py-7 px-5">
         <div class="rounded-2xl">
@@ -40,6 +40,89 @@
                 :pageNumber="$pageNumber" link="admins" :totalPages="$totalPages" />
         </div>
     </div>
+    {{-- EDITAR ADMIN --}}
+    <x-modal width="700px" height="450px" title="Editar informacion del usuario" idModal="editModal" idCloseModal="closeEditModal">
+        <div class="w-full p-4 flex justify-around">
+            <div class="flex-1 flex flex-col justify-around">
+                <div>
+                    <h3 class="py-4">Email de usuario:</h3>
+                    <x-input-email placeholder="Correo de usuario" id="email_user" width="300px" />
+                </div>
+                <div>
+                    <h3 class="py-4">Nombre completo:</h3>
+                    <x-input-text placeholder="Nombre completo" id="names_user"  width="300px"/>
+                </div>
+                <div>
+                    <h3 class="py-4">Carnet de identidad:</h3>
+                    <x-input-text placeholder="Carnet de identidad" id="ci_user"  width="300px"/>
+                </div>
+            </div>
+            <div class="flex-1 flex flex-col justify-around">
+                <div>
+                    <h3 class="py-4">Apellido paterno:</h3>
+                    <x-input-text placeholder="Apellido paterno" id="ap_fa_user"  width="300px"/>
+                </div>
+                <div>
+                    <h3 class="py-4">Apellido materno:</h3>
+                    <x-input-text placeholder="Apellido materno" id="ap_ma_user"  width="300px"/>
+                </div>
+                <div>
+                    <h3 class="py-4">Edad:</h3>
+                    <x-input-text placeholder="Edad" id="age_user"  width="300px"/>
+                </div>
+            </div>
+        </div>
+        <x-slot name="btn_action">
+            <x-button-text id="btnEditUser" color="#fff" bg="#007bff" text="Editar" function="UpdateUser"/>
+        </x-slot>
+    </x-modal>
+
+    {{-- ELIMINAR USUARIO --}}
+    <x-modal width="600px" height="140px" title="¿Esta seguro de eliminar el cliente?" idModal="deleteModal" idCloseModal="closeDeleteModal">
+        <x-slot name="btn_action">
+            <x-button-text id="btnDeleteUser" color="#fff" bg="#007bff" text="Eliminar"/>
+        </x-slot>
+    </x-modal>
+
+    <script>
+
+        function UpdateUser()
+        {
+            const idUser = localStorage.getItem("idUserSystem");
+            const axiosInstance = new AxiosInstance();
+
+            axiosInstance.setMessageSuccess("Se actualizo correctamente");
+            axiosInstance.showSuccessMsg();
+            axiosInstance.hideAllModals();
+        }
+        function EditUserModal(param)
+        {
+            let array = JSON.parse(param);
+            localStorage.setItem("idUserSystem", array[0])
+
+            const modal = new ModalPrefab("editModal", "closeEditModal");
+            modal.openModal();
+        }
+        function RolesUserModal(param)
+        {
+            let array = JSON.parse(param);
+            localStorage.setItem("idUserSystem", array[0])
+            const modal = new ModalPrefab("rolesModal", "closeRolesModal");
+            modal.openModal();
+        }
+        function DeleteUserModal(param)
+        {
+            const modal = new ModalPrefab("deleteModal", "closeDeleteModal");
+            modal.openModal();
+        }
+        function AddModal(param)
+        {
+
+            const modal = new ModalPrefab("addModal", "closeAddModal");
+            modal.openModal();
+        }
+    </script>
+
 
     {{-- FILTER --}}
     <script>

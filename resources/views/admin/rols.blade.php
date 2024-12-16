@@ -62,6 +62,7 @@
             const name = document.getElementById("name_rol_up").value;
 
             const axiosInstance = new AxiosInstance();
+            axiosInstance.setMessageSuccess("Se actualizo correctamente");
             axiosInstance.showSuccessMsg("Se actualizo correctamente");
             axiosInstance.hideAllModals();
         }

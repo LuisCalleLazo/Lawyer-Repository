@@ -41,35 +41,19 @@
         </div>
     </div>
     {{-- EDITAR ADMIN --}}
-    <x-modal width="700px" height="450px" title="Editar informacion del usuario" idModal="editModal" idCloseModal="closeEditModal">
-        <div class="w-full p-4 flex justify-around">
-            <div class="flex-1 flex flex-col justify-around">
-                <div>
-                    <h3 class="py-4">Email de usuario:</h3>
-                    <x-input-email placeholder="Correo de usuario" id="email_user" width="300px" />
-                </div>
-                <div>
-                    <h3 class="py-4">Nombre completo:</h3>
-                    <x-input-text placeholder="Nombre completo" id="names_user"  width="300px"/>
-                </div>
-                <div>
-                    <h3 class="py-4">Carnet de identidad:</h3>
-                    <x-input-text placeholder="Carnet de identidad" id="ci_user"  width="300px"/>
-                </div>
+    <x-modal width="400px" height="450px" title="Editar informacion del usuario" idModal="editModal" idCloseModal="closeEditModal">
+        <div class="flex-1 flex flex-col justify-around">
+            <div>
+                <h3 class="py-4">Descripcion:</h3>
+                <x-input-email placeholder="Correo de usuario" id="email_user" width="300px" />
             </div>
-            <div class="flex-1 flex flex-col justify-around">
-                <div>
-                    <h3 class="py-4">Apellido paterno:</h3>
-                    <x-input-text placeholder="Apellido paterno" id="ap_fa_user"  width="300px"/>
-                </div>
-                <div>
-                    <h3 class="py-4">Apellido materno:</h3>
-                    <x-input-text placeholder="Apellido materno" id="ap_ma_user"  width="300px"/>
-                </div>
-                <div>
-                    <h3 class="py-4">Edad:</h3>
-                    <x-input-text placeholder="Edad" id="age_user"  width="300px"/>
-                </div>
+            <div>
+                <h3 class="py-4">Tipo:</h3>
+                <x-input-text placeholder="Nombre completo" id="names_user"  width="300px"/>
+            </div>
+            <div>
+                <h3 class="py-4">Carnet de identidad:</h3>
+                <x-input-file placeholder="Carnet de identidad" id="ci_user"  width="300px"/>
             </div>
         </div>
         <x-slot name="btn_action">

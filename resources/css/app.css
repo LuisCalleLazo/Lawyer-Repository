@@ -1,3 +1,69 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+
+/* VARIABLES DE CSS */
+@layer
+base {
+    :root {
+      --bg-color: #2171a2;
+      --tx-color: #fff;
+      --cl-loader: #3a7;
+      --txt2-color: #222;
+    }
+}
+
+
+/* ESTILOS PARA EL TOASTIFY */
+.toast
+{
+    background-color: #000 !important;
+    opacity: 1 !important;
+}
+
+.toast.toast-success
+{
+    color: #0f0 !important;
+}
+#toast-container > .toast.toast-info
+{
+    background-image: none !important;
+}
+.toast.toast-error
+{
+    color: #f00 !important;
+}
+
+.toast.toast-info
+{
+    color: #0fa !important;
+}
+
+
+
+/* ESTILOS PARA LOS SCROLL */
+
+::-webkit-scrollbar {
+    width: 3px;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #345; /* Color del thumb */
+}
+
+/* CSS personalizado para ocultar la barra de desplazamiento */
+.no-scrollbar::-webkit-scrollbar {
+display: none;
+}
+.no-scrollbar {
+-ms-overflow-style: none;  /* IE and Edge */
+scrollbar-width: none;  /* Firefox */
+}

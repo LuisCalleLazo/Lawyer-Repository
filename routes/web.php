@@ -23,14 +23,14 @@ Route::get('/admin/contracts', [AdminController::class, "contracts"])->name('con
 // RUTAS DE CLIENTE
 Route::get('/client', function () { return view('client.home'); });
 Route::get('/client/search', [ClientController::class, "search"])->name('client_search_lawyer');
-Route::get('/client/contracts', [ClientController::class, "contracts"])->name('client_contract');
+Route::get('/client/contracts', [ClientController::class, "contracts"])->name('client_contracts');
 Route::get('/client/history', [ClientController::class, "history"])->name('client_history');
 Route::get('/client/lawyers', [ClientController::class, "lawyers"])->name('client_lawyers');
 
 // RUTAS DE ABOGADO
 Route::get('/lawyer', function () { return view('lawyer.home'); });
 Route::get('/lawyer/history', [LawyerController::class, "history"])->name('lawyer_history');
-Route::get('/lawyer/contracts', [LawyerController::class, "contracts"])->name('lawyer_contract');
+Route::get('/lawyer/contracts', [LawyerController::class, "contracts"])->name('lawyer_contracts');
 Route::get('/lawyer/clients', [LawyerController::class, "clients"])->name('lawyer_clients');
 
 // RUTAS EN COMUN ENTRE ABOGADO Y CLIENTE

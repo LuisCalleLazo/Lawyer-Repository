@@ -8,7 +8,7 @@ class LawyerController extends Controller
 {
     public function contracts()
     {
-        return view('lawyer.clients');
+        return view('lawyer.contracts');
     }
 
     public function history()

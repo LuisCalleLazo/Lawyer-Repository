@@ -18,10 +18,10 @@
 
     <title>Abogados - Admin</title>
 </head>
-<body class="bg-gray-900 text-white">
+<body class="bg-white">
     <div class="h-screen flex flex-row">
         {{-- MENU LATERAL --}}
-        <div class="bg-[var(--bg-color)] w-1/5 min-w-64 rounded-e-2xl">
+        <div class="bg-[var(--bg-color)] w-1/5 min-w-64 rounded-e-2xl text-white">
 
             {{-- NAVEGACIÓN EN COMPUTADORA --}}
             <div class="bg-[var(--bg-color)] w-full h-screen flex flex-col justify-between rounded-e-2xl">

@@ -10,6 +10,8 @@
 base {
     :root {
       --bg-color: #2171a2;
+      --bg-color-client: #03446c;
+      --bg-color-lawyer: #11036c;
       --tx-color: #fff;
       --cl-loader: #3a7;
       --txt2-color: #222;

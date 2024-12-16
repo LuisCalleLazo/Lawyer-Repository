@@ -20,9 +20,66 @@
 
     <title>Abogados - Abogado</title>
 </head>
-<body>
-    <div>
-        @yield('layout_lawyer')
+<body class="bg-white">
+
+    <div class="h-screen flex flex-row">
+        {{-- MENU LATERAL --}}
+        <div class="bg-[var(--bg-color-lawyer)] w-1/5 min-w-64 rounded-e-2xl text-white">
+
+            {{-- NAVEGACIÓN EN COMPUTADORA --}}
+            <div class="bg-[var(--bg-color-lawyer)] w-full h-screen flex flex-col justify-between rounded-e-2xl">
+
+                {{-- CABECERA DE NAVEGACION --}}
+                <div class="h-1/4">
+                    <div class="flex-grow h-full">
+                        <img src="{{asset('imgs/law.png')}}" class="object-contain w-full h-full">
+                    </div>
+                </div>
+
+                {{-- CONTENIDO DE NAVEGACION --}}
+                <div class="h-3/4 relative overflow-auto">
+                    <div>
+                        <h3 class="py-5 pl-10 font-bold">Historial</h3>
+
+                        <x-nav-item
+                            link="lawyer_clients"
+                            title="Clientes"
+                            icon="bi bi-people-fill"
+                        />
+                        <x-nav-item
+                            link="lawyer_history"
+                            title="Historial"
+                            icon="bi bi-person-circle"
+                        />
+                        <x-nav-item
+                            link="lawyer_contracts"
+                            title="Contratos"
+                            icon="bi bi-person-circle"
+                        />
+                    </div>
+
+
+                    <form class="py-10 text-red-600" action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button class="flex justify-around hover:bg-gray-900 py-1 rounded-e-3xl w-full">
+                            <div class="flex justify-center items-center h-8 w-20 min-w-20
+                            group-hover:scale-110 duration-75 ease-linear hover:cursor-pointer">
+                                <i class="bi bi-backspace-reverse-fill"></i>
+                            </div>
+                            <div class="flex justify-start items-center h-8 flex-grow
+                            group-hover:text-lg duration-100 ease-linear hover:font-semibold">
+                                <h2 class="w-full text-left">Cerrar session</h2>
+                            </div>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        {{-- CONTENIDO QUE TENDRA POR CADA UNO --}}
+        <div class="w-4/5 relative overflow-auto">
+            @yield('layout_lawyer')
+        </div>
     </div>
 
 

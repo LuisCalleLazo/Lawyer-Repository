@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\Admin;
 use App\Models\Client;
+use App\Models\Lawyer;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,7 +19,7 @@ class ContractFactory extends Factory
     public function definition(): array
     {
         return [
-            'admin_id' => Admin::factory(),
+            'lawyer_id' => Lawyer::factory(),
             'client_id' => Client::factory(),
             'description' => fake()->sentence(),
             'type' => fake()->randomElement(['Servicios legales', 'Honorarios', 'Confidencialidad', 'Representación']),

@@ -5,7 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Rol extends Model
+class RolAdmin extends Model
 {
-    protected $table = 'rols';
+    use HasFactory;
+    protected $table = 'admin_rol';
 }

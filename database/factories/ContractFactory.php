@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Admin;
+use App\Models\Client;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +19,13 @@ class ContractFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'admin_id' => Admin::factory(),
+            'client_id' => Client::factory(),
+            'description' => fake()->sentence(),
+            'type' => fake()->randomElement(['Servicios legales', 'Honorarios', 'Confidencialidad', 'Representación']),
+            'state' => fake()->randomElement(['Pendiente', 'Aprovado', 'Rechazado']),
+            'amount' => fake()->randomFloat(2, 10, 1000),
+            'contract' => 'https://res.cloudinary.com/dm0aq4bey/image/upload/v1724854661/Report/BalanceSheetBs.pdf',
         ];
     }
 }

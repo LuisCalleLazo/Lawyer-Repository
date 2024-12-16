@@ -24,6 +24,7 @@ class UserInfoFactory extends Factory
             'phone' => fake()->phoneNumber(),
             'email' => fake()->unique()->safeEmail(),
             'photo' => fake()->imageUrl(200, 200, 'people', true, 'User Photo'),
+            // 'photo' => 'https://res.cloudinary.com/dm0aq4bey/image/upload/v1703532052/samples/breakfast.jpg',
         ];
     }
 }

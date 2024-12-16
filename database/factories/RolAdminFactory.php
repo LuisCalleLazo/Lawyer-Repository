@@ -2,13 +2,12 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Lawyer>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
-class LawyerFactory extends Factory
+class RolAdminFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,7 +17,8 @@ class LawyerFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => User::factory(),
+            'admin_id' => fake()->numberBetween(1, 30),
+            'rol_id' => fake()->numberBetween(1, 5),
         ];
     }
 }

@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Admin;
+use App\Models\Client;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +19,10 @@ class MessageFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'admin_id' => Admin::factory(),
+            'client_id' => Client::factory(),
+            'message' => fake()->sentence(),
+            'file' => 'https://res.cloudinary.com/dm0aq4bey/image/upload/v1724854661/Report/BalanceSheetBs.pdf'
         ];
     }
 }

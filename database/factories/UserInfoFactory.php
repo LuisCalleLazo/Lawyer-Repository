@@ -18,8 +18,8 @@ class UserInfoFactory extends Factory
     public function definition(): array
     {
         return [
-            'first_name' => 'Nombre completo',
-            'last_name' => 'Apellido completo',
+            'first_name' => fake()->name(),
+            'last_name' => fake()->name(),
             'user_id' => User::factory(),
             'country' => fake()->country(),
             'code' => fake()->numberBetween(1, 999),

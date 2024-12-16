@@ -52,6 +52,11 @@
                             title="Clientes"
                             icon="bi bi-person-circle"
                         />
+                        <x-nav-item
+                            link="messages"
+                            title="Mensajes"
+                            icon="bi bi-person-circle"
+                        />
                     </div>
 
 

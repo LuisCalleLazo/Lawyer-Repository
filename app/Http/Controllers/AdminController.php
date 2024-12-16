@@ -37,6 +37,11 @@ class AdminController extends Controller
             ->with('pageNumber', $pageNumber);
     }
 
+    public function messages()
+    {
+        return view('admin.messages');
+    }
+
     public function rols(Request $request)
     {
         $pageNumber = $request->input('pageNumber', 1);

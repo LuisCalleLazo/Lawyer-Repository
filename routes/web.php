@@ -19,6 +19,7 @@ Route::get('/admin/rols', [AdminController::class, "rols"])->name('rols');
 Route::get('/admin/clients', [AdminController::class, "clients"])->name('clients');
 Route::get('/admin/lawyers', [AdminController::class, "lawyers"])->name('lawyers');
 Route::get('/admin/contracts', [AdminController::class, "contracts"])->name('contracts');
+Route::get('/admin/messages', [AdminController::class, "messages"])->name('messages');
 
 // RUTAS DE CLIENTE
 Route::get('/client', function () { return view('client.home'); });

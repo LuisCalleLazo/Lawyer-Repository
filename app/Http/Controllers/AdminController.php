@@ -109,7 +109,7 @@ class AdminController extends Controller
 
     public function contracts(Request $request)
     {
-        $pageNumber = $request->input('pageNumber', 12);
+        $pageNumber = $request->input('pageNumber', 1);
         $perPage = 10;
         $offset = ($pageNumber - 1) * $perPage;
 
@@ -117,9 +117,8 @@ class AdminController extends Controller
         $totalPages = ceil($totalItems / $perPage);
 
 
-        $data = DB::table('users')
-            ->join('user_info', 'users.id', '=', 'user_info.user_id')
-            ->select('user_info.photo', 'users.id', 'user_info.first_name', 'user_info.last_name', 'user_info.birth_date', 'user_info.email')
+        $data = DB::table('contracts')
+            ->select('id', 'amount', 'state', 'type', 'description', 'contract')
             ->skip($offset) // Aplica OFFSET
             ->take($perPage) // Aplica LIMIT
             ->get();

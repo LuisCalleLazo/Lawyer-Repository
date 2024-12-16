@@ -1,13 +1,13 @@
 @extends('layouts.layout_admin')
 
 @php
-    $titles = ['Imagen', 'Nombre completo', 'Correo', 'Editar', 'Eliminar'];
+    $titles = ['Descripction', 'Estado', 'Tipo', 'Editar', 'Eliminar'];
     $fields = $admins->map(function($item) {
         return [
-            $item->id,  // Acceder a la propiedad id del objeto
-            $item->photo,  // Acceder a la propiedad photo
-            $item->first_name . " " . $item->last_name,  // Concatenar first_name y last_name
-            $item->email,  // Acceder a la propiedad email
+            $item->id,
+            $item->description,
+            $item->state,
+            $item->type,
         ];
     })->toArray();
 
@@ -36,7 +36,7 @@
     </div>
     <div class="h-[80vh] relative overflow-auto py-7 px-5">
         <div class="rounded-2xl">
-            <x-table :titles="$titles" :fields="$fields" :buttons="$buttons" :hasIcon=true
+            <x-table :titles="$titles" :fields="$fields" :buttons="$buttons" :hasIcon=false
                 :pageNumber="$pageNumber" link="admins" :totalPages="$totalPages" />
         </div>
     </div>

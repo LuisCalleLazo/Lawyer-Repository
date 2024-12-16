@@ -40,5 +40,26 @@
                 :pageNumber="$pageNumber" link="admins" :totalPages="$totalPages" />
         </div>
     </div>
+
+    {{-- FILTER --}}
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const searchInput = document.getElementById('filter');
+            const rows = document.querySelectorAll('tbody tr');
+
+            searchInput.addEventListener('keyup', function () {
+                const searchTerm = this.value.trim().toLowerCase();
+
+                rows.forEach(row => {
+                    const name = row.querySelector('td:nth-child(1)').textContent.trim().toLowerCase();
+                    if (name.includes(searchTerm)) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
 </div>
 @endsection

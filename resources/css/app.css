@@ -48,7 +48,7 @@ base {
 
 /* ESTILOS PARA LOS SCROLL */
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
     width: 3px;
     border-radius: 10px;
 }
@@ -58,14 +58,14 @@ base {
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #345; /* Color del thumb */
-}
+    background-color: #345;
+} */
 
 /* CSS personalizado para ocultar la barra de desplazamiento */
 .no-scrollbar::-webkit-scrollbar {
-display: none;
+    display: none;
 }
 .no-scrollbar {
--ms-overflow-style: none;  /* IE and Edge */
-scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }

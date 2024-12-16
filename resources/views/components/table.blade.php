@@ -1,6 +1,6 @@
 
 
-<table class="bg-gray-900 w-full rounded-2xl">
+<table class="bg-white w-full rounded-2xl">
     <thead>
         @foreach ( $titles as $title)
             <th class="py-4 border-b-[3px]">{{$title}}</th>

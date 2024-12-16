@@ -27,7 +27,7 @@
             <div class="bg-[var(--bg-color)] w-full h-screen flex flex-col justify-between rounded-e-2xl">
 
                 {{-- CABECERA DE NAVEGACION --}}
-                <div class="h-1/4">
+                <div class="h-1/4" onclick="location.href='/admin'">
                     <div class="flex-grow h-full">
                         <img src="{{asset('imgs/law.png')}}" class="object-contain w-full h-full">
                     </div>

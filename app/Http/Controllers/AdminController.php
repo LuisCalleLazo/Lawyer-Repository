@@ -2,37 +2,133 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Rol;
 use App\Models\Admin;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('admin.index');
+        $pageNumber = $request->input('pageNumber', 1);
+        $perPage = 10;
+        $offset = ($pageNumber - 1) * $perPage;
+
+        $totalItems = Admin::count();
+        $totalPages = ceil($totalItems / $perPage);
+
+
+        $data = DB::table('users')
+            ->join('user_info', 'users.id', '=', 'user_info.user_id')
+            ->select('user_info.photo', 'users.id', 'user_info.first_name', 'user_info.last_name', 'user_info.birth_date', 'user_info.email')
+            ->skip($offset) // Aplica OFFSET
+            ->take($perPage) // Aplica LIMIT
+            ->get();
+
+
+        return view('admin.index')
+            ->with('admins', $data)
+            ->with('totalPages', $totalPages)
+            ->with('totalItems', $totalItems)
+            ->with('pageNumber', $pageNumber);
     }
 
-    public function rols()
+    public function rols(Request $request)
     {
-        return view('admin.rols');
+        $pageNumber = $request->input('pageNumber', 1);
+        $perPage = 10;
+        $offset = ($pageNumber - 1) * $perPage;
+
+        $totalItems = Rol::count();
+        $totalPages = ceil($totalItems / $perPage);
+
+
+        $data = DB::table('rols')
+            ->select('id', 'name', 'description')
+            ->skip($offset) // Aplica OFFSET
+            ->take($perPage) // Aplica LIMIT
+            ->get();
+
+        return view('admin.rols')
+        ->with('admins', $data)
+        ->with('totalPages', $totalPages)
+        ->with('totalItems', $totalItems)
+        ->with('pageNumber', $pageNumber);
     }
 
-    public function clients()
+    public function clients(Request $request)
     {
-        return view('admin.clients');
+        $pageNumber = $request->input('pageNumber', 1);
+        $perPage = 10;
+        $offset = ($pageNumber - 1) * $perPage;
+
+        $totalItems = Admin::count();
+        $totalPages = ceil($totalItems / $perPage);
+
+
+        $data = DB::table('users')
+            ->join('user_info', 'users.id', '=', 'user_info.user_id')
+            ->select('user_info.photo', 'users.id', 'user_info.first_name', 'user_info.last_name', 'user_info.birth_date', 'user_info.email')
+            ->skip($offset) // Aplica OFFSET
+            ->take($perPage) // Aplica LIMIT
+            ->get();
+        return view('admin.clients')
+            ->with('admins', $data)
+            ->with('totalPages', $totalPages)
+            ->with('totalItems', $totalItems)
+            ->with('pageNumber', $pageNumber);
     }
 
-    public function lawyers()
+    public function lawyers(Request $request)
     {
-        return view('admin.lawyers');
+        $pageNumber = $request->input('pageNumber', 5);
+        $perPage = 10;
+        $offset = ($pageNumber - 1) * $perPage;
+
+        $totalItems = Admin::count();
+        $totalPages = ceil($totalItems / $perPage);
+
+
+        $data = DB::table('users')
+            ->join('user_info', 'users.id', '=', 'user_info.user_id')
+            ->select('user_info.photo', 'users.id', 'user_info.first_name', 'user_info.last_name', 'user_info.birth_date', 'user_info.email')
+            ->skip($offset) // Aplica OFFSET
+            ->take($perPage) // Aplica LIMIT
+            ->get();
+
+        return view('admin.lawyers')
+            ->with('admins', $data)
+            ->with('totalPages', $totalPages)
+            ->with('totalItems', $totalItems)
+            ->with('pageNumber', $pageNumber);
     }
 
-    public function contracts()
+    public function contracts(Request $request)
     {
-        return view('admin.contracts');
+        $pageNumber = $request->input('pageNumber', 12);
+        $perPage = 10;
+        $offset = ($pageNumber - 1) * $perPage;
+
+        $totalItems = Admin::count();
+        $totalPages = ceil($totalItems / $perPage);
+
+
+        $data = DB::table('users')
+            ->join('user_info', 'users.id', '=', 'user_info.user_id')
+            ->select('user_info.photo', 'users.id', 'user_info.first_name', 'user_info.last_name', 'user_info.birth_date', 'user_info.email')
+            ->skip($offset) // Aplica OFFSET
+            ->take($perPage) // Aplica LIMIT
+            ->get();
+
+        return view('admin.contracts')
+            ->with('admins', $data)
+            ->with('totalPages', $totalPages)
+            ->with('totalItems', $totalItems)
+            ->with('pageNumber', $pageNumber);
     }
 
     public function create()
